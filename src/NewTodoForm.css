@@ -1,0 +1,33 @@
+.NewTodoForm {
+    width: 400px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.NewTodoForm label {
+    margin-right: 20px;
+}
+
+.NewTodoForm input {
+    width: 300px;
+    height: 50px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border: none;
+    padding: 5px;
+}
+
+.NewTodoForm button {
+    height: 60px;
+    width: 120px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border: none;
+    padding: 5px;
+}

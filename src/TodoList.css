@@ -1,0 +1,28 @@
+.TodoList {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 500px;
+    height: auto;
+    background-color: tomato;
+    border-radius: 2em;
+    padding: 20px;
+}
+
+.TodoList-title {
+    text-align: left;
+    margin-bottom: 20px;
+    margin-left: 50px;
+    align-self: flex-start;
+}
+
+.TodoList-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 90%;
+    list-style: none;
+    margin: 15px 0;
+}
