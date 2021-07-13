@@ -9,13 +9,11 @@ class TodoList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            items: [
-                { task: "Clean car", id: uuidv4() },
-                { task: "Wash dishes", id: uuidv4() }
-            ]
+            items: []
         }
         this.addItem = this.addItem.bind(this)
     }
+
     addItem(item) {
         let newItem = { ...item, id: uuidv4() }
         this.setState(state => {
@@ -23,12 +21,14 @@ class TodoList extends Component {
             return { items: newItems }
         })
     }
+
     removeItem(id) {
         console.log('Remove item called')
         this.setState(state => {
             return { items: state.items.filter(item => item.id !== id) }
         })
     }
+
     render() {
         return (
             <div className="TodoList">
