@@ -12,6 +12,8 @@ class TodoList extends Component {
             items: []
         }
         this.addItem = this.addItem.bind(this)
+        this.removeItem = this.removeItem.bind(this)
+        this.editItem = this.editItem.bind(this)
     }
 
     addItem(item) {
@@ -23,10 +25,18 @@ class TodoList extends Component {
     }
 
     removeItem(id) {
-        console.log('Remove item called')
         this.setState(state => {
             return { items: state.items.filter(item => item.id !== id) }
         })
+    }
+
+    editItem(id, newText) {
+        let updatedItems = this.state.items.map(todo => {
+            if (todo.id === id) {
+                return { ...todo, task: newText }
+            }
+        })
+        this.setState({ items: updatedItems })
     }
 
     render() {
@@ -35,7 +45,8 @@ class TodoList extends Component {
                 <h1 className="TodoList-title">Todo List</h1>
                 <div className="TodoList-items">
                     {this.state.items.map((item) => {
-                        return <Todo key={item.id} task={item.task} removeItem={() => this.removeItem(item.id)} />
+                        return <Todo key={item.id} task={item.task} id={item.id}
+                            removeItem={this.removeItem} editItem={this.editItem} />
                     })}
                 </div>
                 <NewTodoForm addItem={this.addItem} />
