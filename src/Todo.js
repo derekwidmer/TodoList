@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './Todo.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faTrash, faEdit } from '@fortawesome/free-solid-svg-icons'
 
 class Todo extends Component {
     constructor(props) {
@@ -16,7 +16,8 @@ class Todo extends Component {
             <div className="Todo">
                 <p>
                     {this.props.task}
-                    <FontAwesomeIcon onClick={this.handleDelete} style={{ cursor: "pointer" }} className="icon" icon={faTrash} />
+                    <FontAwesomeIcon style={{ cursor: "pointer" }} className="icon" icon={faEdit} />
+                    <FontAwesomeIcon onClick={this.handleDelete} style={{ cursor: "pointer", marginLeft: "15px" }} icon={faTrash} />
                 </p>
             </div>
         )

@@ -1,6 +1,12 @@
 .Todo {
     width: 400px;
     display: flex;
+    padding: 0 10px;
+    border-radius: 10px;
+}
+
+.Todo:hover {
+    background-color: rgb(236, 82, 55);
 }
 
 .Todo p {
@@ -9,5 +15,5 @@
 }
 
 .icon {
-margin-left: auto;
+    margin-left: auto;
 }
