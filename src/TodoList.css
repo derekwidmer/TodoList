@@ -13,9 +13,10 @@
 
 .TodoList-title {
     text-align: left;
-    margin-bottom: 20px;
-    margin-left: 50px;
+    margin: 20px 50px;
     align-self: flex-start;
+    width: 80%;
+    border-bottom: 1px solid white;
 }
 
 .TodoList-items {
@@ -24,5 +25,5 @@
     align-items: center;
     height: 90%;
     list-style: none;
-    margin: 15px 0;
 }
+

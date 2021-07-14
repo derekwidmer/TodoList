@@ -19,6 +19,7 @@
     border-bottom-right-radius: 0;
     border: none;
     padding: 5px;
+    padding-left: 10px;
 }
 
 .NewTodoForm button {
@@ -30,4 +31,8 @@
     border-bottom-left-radius: 0;
     border: none;
     padding: 5px;
+    background-color: lightgray;
+    color:black;
+    font-weight: 700;
+    font-size: 15px
 }
