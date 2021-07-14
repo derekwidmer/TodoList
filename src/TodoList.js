@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import Todo from './Todo'
 import './TodoList.css'
 import NewTodoForm from './NewTodoForm'
-import { v4 as uuidv4 } from 'uuid';
 
 
 class TodoList extends Component {
@@ -14,12 +13,12 @@ class TodoList extends Component {
         this.addItem = this.addItem.bind(this)
         this.removeItem = this.removeItem.bind(this)
         this.editItem = this.editItem.bind(this)
+        this.toggleCompletion = this.toggleCompletion.bind(this)
     }
 
     addItem(item) {
-        let newItem = { ...item, id: uuidv4() }
         this.setState(state => {
-            let newItems = [...state.items, newItem]
+            let newItems = [...state.items, item]
             return { items: newItems }
         })
     }
@@ -34,6 +33,19 @@ class TodoList extends Component {
         let updatedItems = this.state.items.map(todo => {
             if (todo.id === id) {
                 return { ...todo, task: newText }
+            } else {
+                return todo;
+            }
+        })
+        this.setState({ items: updatedItems })
+    }
+
+    toggleCompletion(id) {
+        let updatedItems = this.state.items.map(todo => {
+            if (todo.id === id) {
+                return { ...todo, completed: !todo.completed }
+            } else {
+                return todo;
             }
         })
         this.setState({ items: updatedItems })
@@ -45,8 +57,14 @@ class TodoList extends Component {
                 <h1 className="TodoList-title">Todo List</h1>
                 <div className="TodoList-items">
                     {this.state.items.map((item) => {
-                        return <Todo key={item.id} task={item.task} id={item.id}
-                            removeItem={this.removeItem} editItem={this.editItem} />
+                        return <Todo
+                            key={item.id}
+                            task={item.task}
+                            id={item.id}
+                            completed={item.completed}
+                            removeItem={this.removeItem}
+                            editItem={this.editItem}
+                            toggleCompletion={this.toggleCompletion} />
                     })}
                 </div>
                 <NewTodoForm addItem={this.addItem} />

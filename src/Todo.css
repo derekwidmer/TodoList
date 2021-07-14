@@ -1,19 +1,39 @@
 .Todo {
-    width: 400px;
+    width: 450px;
     display: flex;
-    padding: 0 10px;
+    padding: 10px 10px;
     border-radius: 10px;
+    margin-bottom: 5px;
+    transition: all 0.3s linear;
 }
 
 .Todo:hover {
-    background-color: rgb(236, 82, 55);
+    background-color: rgb(204, 42, 63);
+    cursor: pointer;
 }
 
-.Todo p {
-    width: 100%;
+.Todo-taskText {
+    width: 90%;
     display: flex;
+    margin-right: auto;
+    align-items: center;
+}
+.Todo-icons {
+    display: flex;
+    transition: all 1s ease;
+    align-items: center;
 }
 
-.icon {
-    margin-left: auto;
+.Todo-icons .icon {
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.Todo-icons .icon:hover {
+    background-color: rgb(179, 31, 51);
+}
+
+.completed {
+    opacity: 0.6;
+    text-decoration: line-through;
 }

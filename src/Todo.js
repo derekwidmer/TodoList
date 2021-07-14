@@ -11,6 +11,7 @@ class Todo extends Component {
         this.toggleForm = this.toggleForm.bind(this)
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleCompletion = this.handleCompletion.bind(this)
     }
     handleDelete() {
         this.props.removeItem(this.props.id);
@@ -26,6 +27,9 @@ class Todo extends Component {
     handleChange(evt) {
         this.setState({ [evt.target.name]: evt.target.value })
     }
+    handleCompletion() {
+        this.props.toggleCompletion(this.props.id)
+    }
     render() {
         let result;
         if (this.state.isEditing) {
@@ -38,13 +42,13 @@ class Todo extends Component {
                 </div>
         } else {
             result =
-                <div className="Todo">
-                    <p>
-                        {this.props.task}
+                <div className={`Todo ${this.props.completed ? 'completed' : ''}`}>
+                    <div className="Todo-taskText" onClick={this.handleCompletion} >{this.props.task}</div>
+                    <div className="Todo-icons">
                         <FontAwesomeIcon onClick={this.toggleForm} style={{ cursor: "pointer" }} className="icon" icon={faEdit} />
-                        <FontAwesomeIcon onClick={this.handleDelete} style={{ cursor: "pointer", marginLeft: "15px" }} icon={faTrash} />
-                    </p>
-                </div>
+                        <FontAwesomeIcon onClick={this.handleDelete} style={{ cursor: "pointer", marginLeft: "15px" }} className="icon" icon={faTrash} />
+                    </div>
+                </div >
         }
         return result;
     }

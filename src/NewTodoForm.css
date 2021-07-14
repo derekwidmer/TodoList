@@ -1,5 +1,5 @@
 .NewTodoForm {
-    width: 400px;
+    width: 450px;
     height: 100px;
     display: flex;
     align-items: center;
@@ -7,12 +7,12 @@
 }
 
 .NewTodoForm label {
-    margin-right: 20px;
+    margin-right: 10px;
 }
 
 .NewTodoForm input {
-    width: 300px;
-    height: 50px;
+    width: 350px;
+    height: 30px;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     border-top-right-radius: 0;
@@ -22,17 +22,28 @@
     padding-left: 10px;
 }
 
+.NewTodoForm input:focus {
+    outline: none;
+}
+
 .NewTodoForm button {
-    height: 60px;
-    width: 120px;
+    height: 40px;
+    width: 100px;
     border-bottom-right-radius: 10px;
     border-top-right-radius: 10px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     border: none;
+    border-left: 1px solid lightgray;
     padding: 5px;
-    background-color: lightgray;
-    color:black;
+    background-color: white;
+    color:rgb(82, 82, 82);
     font-weight: 700;
-    font-size: 15px
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color .25s ease;
+}
+
+.NewTodoForm button:hover {
+    background-color: lightgray;
 }
